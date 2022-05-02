@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Hello</h1>
+    <ul id="list">
+      <li id="list_item">
+        <a id="list_item_link" target="_blank" href="http://google.com"
+          >Click Me</a
+        >
+      </li>
+    </ul>
+    <script>
+      const get = (id) => document.getElementById(id);
+      const $list = get("list");
+      const $list_item = get("list_item");
+      const $list_item_link = get("list_item_link");
+
+      // list 的捕獲
+      $list.addEventListener(
+        "click",
+        (e) => {
+          console.log("list capturing", e.eventPhase);
+        },
+        true
+      );
+
+      // list 的冒泡
+      $list.addEventListener(
+        "click",
+        (e) => {
+          console.log("list bubbling", e.eventPhase);
+        },
+        false
+      );
+
+      // list_item 的捕獲
+      $list_item.addEventListener(
+        "click",
+        (e) => {
+          console.log("list_item capturing", e.eventPhase);
+        },
+        true
+      );
+
+      // list_item 的冒泡
+      $list_item.addEventListener(
+        "click",
+        (e) => {
+          console.log("list_item bubbling", e.eventPhase);
+        },
+        false
+      );
+
+      // list_item_link 的捕獲
+      $list_item_link.addEventListener(
+        "click",
+        (e) => {
+          console.log("list_item_link capturing", e.eventPhase);
+        },
+        true
+      );
+
+      // list_item_link 的冒泡
+      $list_item_link.addEventListener(
+        "click",
+        (e) => {
+          console.log("list_item_link bubbling", e.eventPhase);
+        },
+        false
+      );
+    </script>
+  </body>
+</html>
